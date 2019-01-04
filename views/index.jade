@@ -1,0 +1,42 @@
+extends layout
+
+block scripts
+	script(src="/socket.io/socket.io.js")
+	script(src="/javascripts/client.socket.io.js")
+block content
+
+	div(class="container")
+		div(class="row")
+			div(class="col-sm-5 col-md-6")
+				h2 Twitter Sentimental Analysis
+				input#stop(type="submit", value="Click Here To Stop Displaying Tweets", class="btn btn-danger btn-sm")
+	div(class="container")
+		div(class="row")
+			hr
+			div(class="col-xs-6 col-sm-4")
+				div(class="panel status panel-info")
+					div(class="panel-heading")
+						h1(class="panel-title text-center" id="loveStat") 10
+					div(class="panel-body text-center")
+						strong Love Percentage
+			div(class="col-xs-6 col-sm-4")
+				div(class="panel status  panel-warning")
+					div(class="panel-heading")
+						h1(class="panel-title text-center" id="totalStat") 10
+					div(class="panel-body text-center")
+						strong Total Tweet Count
+			div(class="col-xs-6 col-sm-4")
+				div(class="panel status  panel-danger")
+					div(class="panel-heading")
+						h1(class="panel-title text-center" id="hateStat") 10
+					div(class="panel-body text-center panel-warning")
+						strong Hate Percentage
+	div(class="container")
+			div(class="row")
+				div(class="col-sm-5 col-md-6")
+					p.badge Love Tweets
+						ul.list-group(id="love") 
+				div(class="col-sm-5 col-sm-offset-2 col-md-6 col-md-offset-0")				
+					p.badge Hate Tweets	
+						ul.list-group(id="hate")
+							

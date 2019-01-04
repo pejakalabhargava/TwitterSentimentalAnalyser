@@ -1,0 +1,58 @@
+Twitter Sentiment Analyzer
+---------------------------------------------------------------
+
+Operations :
+Server:
+-Retrieves data from Twitter’s streaming API :
+-Filters the tweet that contains words 'love' or 'hate'
+-Does analysis on the tweets received
+-Emits the results to the clients  connected
+
+Client:
+-Receives the tweets from the server
+-Display the tweets and summary statistics on the web page. 
+ This includes percentage of love tweets,percentage of hate tweets, total number of tweets and all love/hate tweets
+
+---------------------------------------------------------------
+Required Softwares:
+
+-Node v0.13.0-pre
+	"dependencies": {
+    "body-parser": "~1.10.2",
+    "cookie-parser": "~1.3.3",
+    "debug": "~2.1.1",
+    "express": "~4.11.1",
+    "jade": "~1.9.1",
+    "morgan": "~1.5.1",
+    "serve-favicon": "~2.2.0",
+    "socket.io": "^1.3.2",
+    "twit":"1.1.19"
+  }
+-jQuery v2.1.3
+-Bootstrap v3.3.2 (css and js)
+
+---------------------------------------------------------------
+
+Steps to execute:
+
+NOTE: make sure follwoing enviornment variables are added to bashrc so that "node -e ‘console.log(process.env.TWITTER_CONSUMER_KEY)’" displays results on the console.
+TWITTER_CONSUMER_KEY=your_key_from_twitter
+TWITTER_CONSUMER_SECRET=your_secret_from_twitter
+TWITTER_ACCESS_TOKEN =your_twitter_access_key
+TWITTER_ACCESS_SECRET = your_twitter_access_secret
+
+a) Go to the project folder :
+	cd twitterSentimentAnalysis
+b)Make sure all the node dependencies are installed.
+	npm install
+c)Start the node server
+	node app.js
+d) Open the url http://localhost:3000/ in the browser
+e) The webpage displays three blocks in the beggining of the page namely 'Love Percentage', 'Total Tweet Count','Hate Percentage'
+f)It is follwed by two blocks for displaying love and hate tweets.Since the twitter stream is continously being served the tweets and th
+ counter are obserevd to be rapidly changing.
+ g)To stop displaying love or ahte tweets, click on red button "Click here to stop displaying tweets". This stops tweets being displayed on the page.
+   This way all the tweets received so far can be observed.
+h) If user wants to see the twitter feed again, he can click on green button "Click here to start displaying tweets".
+i) Note that the twiiter statistics are global. All clients connected display the same statistics.
+---------------------------------------------------------------
